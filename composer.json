@@ -1,0 +1,30 @@
+{
+  "name": "bullhorn/fast-rest-services",
+  "type": "library",
+  "description": "FastREST generates REST-ready models and controllers dynamically from a MySQL database schema, including foreign keys, table and column comments, and indexes.",
+  "keywords": [
+    "bullhorn",
+    "ats"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Bullhorn",
+      "email": "nlewis@bullhorn.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.5",
+    "ext-phalcon": "^3.2",
+  },
+  "require-dev": {
+    "phalcon/incubator": "^3.2"
+  },
+  "autoload": {
+    "psr-0": {
+      "Bullhorn\\FastRestServices": "Library/"
+    }
+  }
+}
