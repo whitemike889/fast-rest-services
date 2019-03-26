@@ -1,6 +1,6 @@
 <?php
 //To use this, you must also implement \Phalcon\DI\InjectionAwareInterface
-namespace Bullhorn\FastRest;
+namespace Bullhorn\FastRestServices;
 
 use Phalcon\DI\FactoryDefault;
 use Phalcon\DiInterface;
