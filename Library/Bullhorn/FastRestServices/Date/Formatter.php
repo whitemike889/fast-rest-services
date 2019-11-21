@@ -4,7 +4,6 @@ namespace Bullhorn\FastRestServices\Date;
 use Bullhorn\FastRestServices\DataValidation\Assert;
 use Bullhorn\FastRestServices\DependencyInjection;
 use InvalidArgumentException;
-use Phalcon\Di\FactoryDefault;
 use Phalcon\Di\InjectionAwareInterface;
 
 class Formatter implements InjectionAwareInterface {
@@ -231,5 +230,30 @@ class Formatter implements InjectionAwareInterface {
      */
     public function formatDate(Date $input) {
         return $input->format($this->getCurrentFormat());
+    }
+
+    /**
+     * GetDateLocale
+     * @param string|null $dateFormat
+     * @return string
+     */
+    public function getDateLocale($dateFormat = NULL): string {
+        if(is_null($dateFormat)) {
+            $dateFormat = $this->getCurrentFormat();
+        }
+        switch($dateFormat) {
+            case self::DATE_FORMAT_UK:
+                return 'en-GB';
+                break;
+            case self::DATE_FORMAT_EURO:
+                return 'en-IE';
+                break;
+            case self::DATE_FORMAT_US:
+                return 'en-US';
+                break;
+            default:
+                throw new InvalidArgumentException('Unexpected Date Format: '. $dateFormat);
+                break;
+        }
     }
 }
