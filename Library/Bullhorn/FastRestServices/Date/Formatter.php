@@ -233,19 +233,27 @@ class Formatter implements InjectionAwareInterface {
     }
 
     /**
-     * Gets a date locale
-     *
+     * GetDateLocale
+     * @param string|null $dateFormat
      * @return string
      */
-    public static function getDateLocale(): string {
-        switch(self::getDefault()->getCurrentFormat()) {
+    public function getDateLocale($dateFormat = NULL): string {
+        if(is_null($dateFormat)) {
+            $dateFormat = $this->getCurrentFormat();
+        }
+        switch($dateFormat) {
             case self::DATE_FORMAT_UK:
                 return 'en-GB';
+                break;
             case self::DATE_FORMAT_EURO:
                 return 'en-IE';
+                break;
             case self::DATE_FORMAT_US:
-            default:
                 return 'en-US';
+                break;
+            default:
+                throw new InvalidArgumentException('Unexpected Date Format: '. $dateFormat);
+                break;
         }
     }
 }
